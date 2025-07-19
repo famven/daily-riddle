@@ -2,38 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Daily IQ Riddle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧠 Daily IQ Riddle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-    #riddle { font-size: 22px; margin-bottom: 20px; }
-    iframe { width: 400px; height: 600px; border: none; }
-    .leaderboard { margin-top: 30px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111827;
+      color: #f9fafb;
+      margin: 0; padding: 0;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 600px; padding: 40px;
+      background: #1f2937; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    }
+    h1 { text-align: center; font-weight: 800; font-size: 2em; color: #10b981; }
+    .riddle-box {
+      background: #374151; padding: 20px; border-radius: 10px;
+      margin-top: 20px; font-size: 1.2em;
+    }
+    iframe {
+      width: 100%; height: 600px; border: none; border-radius: 10px; margin-top: 20px;
+    }
+    .leaderboard h2 {
+      margin-top: 30px; text-align: center; font-weight: 600; color: #f59e0b;
+    }
+    @media (max-width: 640px) {
+      .container { width: 90%; padding: 20px; }
+      h1 { font-size: 1.5em; }
+    }
   </style>
 </head>
 <body>
-  <h1>🧠 Daily IQ Riddle</h1>
-  <div id="riddle">Loading today's riddle...</div>
-  <iframe id="form" src=""></iframe>
+  <div class="container">
+    <h1>🧠 Daily IQ Riddle</h1>
+    <div class="riddle-box" id="riddle">Loading today's riddle...</div>
 
-  <div class="leaderboard">
-    <h2>🏆 Today's Leaderboard</h2>
-    <iframe src="" id="leaderboard-frame"></iframe>
+    <iframe id="form" src="https://docs.google.com/forms/d/e/1FAIpQLSe5dZvh0z_3UkcXf1vl8vatt9bYBdo1PM7Jgn1brkqpwLxBBg/viewform?embedded=true"></iframe>
+
+    <div class="leaderboard">
+      <h2>🏆 Today's Top Solvers</h2>
+      <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTumLzYdcthr9Dixhle81KtkkKU28BD4zjoqN5q2cfFPVJviYqNNq7eD9Lei7-GbwTg46RxvDBK_HvF/pubhtml?gid=614483956&single=true"></iframe>
+    </div>
   </div>
 
   <script>
     const riddles = {
       "2024-07-19": "What number comes next: 1, 2, 6, 24, ___?",
       "2024-07-20": "What is the next prime after 97?",
-      "2024-07-21": "What is 1/2 of 1/4 of 1/8 of 128?"
-      // Add all 100 riddles with date keys
+      "2024-07-21": "What is 1/2 of 1/4 of 1/8 of 128?",
+      "2024-07-22": "If 5 cats catch 5 mice in 5 minutes, how long will it take 1 cat to catch 1 mouse?",
+      "2024-07-23": "What number is twice the sum of its digits and is divisible by 7?",
+      "2024-07-24": "If you have me, you want to share me. If you share me, you no longer have me. What am I?",
+      "2024-07-25": "Which weighs more, a kilogram of feathers or a kilogram of steel?",
+      "2024-07-26": "What number should replace the question mark? 2, 3, 5, 9, 17, ?",
+      "2024-07-27": "What is the smallest number divisible by each of the numbers 1 through 10?",
+      "2024-07-28": "I am a three-digit number. My tens digit is five more than my ones digit. My hundreds digit is eight less than my tens digit. What number am I?"
+      // Add more riddles up to 100 here...
     };
 
     const today = new Date().toISOString().slice(0,10);
     document.getElementById('riddle').textContent = riddles[today] || "Check back tomorrow!";
-
-    document.getElementById('form').src = 'https://docs.google.com/forms/d/e/1FAIpQLSe5dZvh0z_3UkcXf1vl8vatt9bYBdo1PM7Jgn1brkqpwLxBBg/viewform?usp=header';
-
-    document.getElementById('leaderboard-frame').src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTumLzYdcthr9Dixhle81KtkkKU28BD4zjoqN5q2cfFPVJviYqNNq7eD9Lei7-GbwTg46RxvDBK_HvF/pubhtml?gid=614483956&single=true';
   </script>
 </body>
 </html>
