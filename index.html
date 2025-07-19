@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Daily IQ Riddle</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    #riddle { font-size: 22px; margin-bottom: 20px; }
+    iframe { width: 400px; height: 600px; border: none; }
+    .leaderboard { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <h1>🧠 Daily IQ Riddle</h1>
+  <div id="riddle">Loading today's riddle...</div>
+  <iframe id="form" src=""></iframe>
+
+  <div class="leaderboard">
+    <h2>🏆 Today's Leaderboard</h2>
+    <iframe src="" id="leaderboard-frame"></iframe>
+  </div>
+
+  <script>
+    const riddles = {
+      "2024-07-19": "What number comes next: 1, 2, 6, 24, ___?",
+      "2024-07-20": "What is the next prime after 97?",
+      "2024-07-21": "What is 1/2 of 1/4 of 1/8 of 128?"
+      // Add all 100 riddles with date keys
+    };
+
+    const today = new Date().toISOString().slice(0,10);
+    document.getElementById('riddle').textContent = riddles[today] || "Check back tomorrow!";
+
+    document.getElementById('form').src = 'https://docs.google.com/forms/d/e/1FAIpQLSe5dZvh0z_3UkcXf1vl8vatt9bYBdo1PM7Jgn1brkqpwLxBBg/viewform?usp=header';
+
+    document.getElementById('leaderboard-frame').src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTumLzYdcthr9Dixhle81KtkkKU28BD4zjoqN5q2cfFPVJviYqNNq7eD9Lei7-GbwTg46RxvDBK_HvF/pubhtml?gid=614483956&single=true';
+  </script>
+</body>
+</html>
